@@ -10,7 +10,7 @@
 - Inside the `src/config` folder create a new file `config.json` then add following piece of json
 
 
-````
+```````
 {
   "development": {
     "username": "<your DB login NAME>",
@@ -21,8 +21,7 @@
   },
 }
 
-
-````
+```````
 
 - Once you've added your db config as listed above, go to the src folder  from your terminal and execute 
 `npx sequelize db:create`
