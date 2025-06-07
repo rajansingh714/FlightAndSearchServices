@@ -8,7 +8,6 @@ const setupAndStartServer = async() => {
         // create express object
         const app = express();
 
-
         // middleWare
         app.use(bodyparser.json());
         app.use(bodyparser.urlencoded({extended: true}));
