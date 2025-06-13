@@ -1,4 +1,5 @@
-const { City } = require('../models/city');
+
+const { City } = require('../models/index');
 
 
 class CityRepository {
@@ -6,47 +7,45 @@ class CityRepository {
         async createCity({ name }) {
             try {
                 const city = await City.create({
-                        name: name
-                });
-                return city;
+                name: name
+            });
+            return city;
             } catch (error) {
-                console.log("Something went wrong in respository layer");
-                throw(error);
+                console.log("Something went wrong in repository layer");
+                throw{error};
             }
-        }
+        } 
 
-        async deelteCity(cityId) {
+       async deleteCity(cityId)  {
             try {
-                await City.destory({
+                const response = await City.destory({
                     where: {
                         id: cityId
                     }
                 });
                 return true;
-
             } catch (error) {
-                console.log("Something went wrong in respository layer");
-                throw(error);
+                console.log("Something went wrong in repository layer");
+                throw{error};
             }
-        }
+       }
 
-        async updateCity(cityId, data) {
+        async updateCity(data, cityId) {
             try {
-                const city = await City.update(data, {
+                const response = await City.update(data, {
                     where: {
                         id: cityId
                     }
                 });
-                return city;
+                return response;
             } catch (error) {
-                  console.log("Something went wrong in respository layer");
-                  throw(error);
+                console.log("Something went wrong in repository laeyr");
+                throw(error);
             }
         }
 
-
         async getCity(cityId) {
-            try {  
+            try {
                 const city = await City.findByPk(cityId);
                 return city;
             } catch (error) {
@@ -54,8 +53,8 @@ class CityRepository {
                 throw(error);
             }
         }
-}   
+}
+
 
 module.exports = CityRepository;
-
 

@@ -17,7 +17,7 @@
             "development": {
                  "username": "<your DB Name>",
                 "password": "<yorr DB password >",
-                "database": "fligh_Search_Dev",
+                "database": "flight_search_dev",
                 "host": "127.0.0.1",
                  "dialect": "mysql"
             }        
