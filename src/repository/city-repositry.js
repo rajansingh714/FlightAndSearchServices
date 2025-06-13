@@ -18,7 +18,7 @@ class CityRepository {
 
        async deleteCity(cityId)  {
             try {
-                const response = await City.destory({
+                const response = await City.destroy({
                     where: {
                         id: cityId
                     }
