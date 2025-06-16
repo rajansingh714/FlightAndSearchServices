@@ -47,3 +47,9 @@ from your terminal and execute `npx sequuelize db:create` and then execute
 #### Airport -> id, name, address, city_id, created_at, updated_at
 
     RealtionShip -> city had many airports and Airports belongs to a city (One to many)
+
+
+````` npx sequelize model:generate --name Airport --attributes name:String,address:String,cityId:integer ````
+
+```` npx sequelize seed:generate --name add-airports ````
+
