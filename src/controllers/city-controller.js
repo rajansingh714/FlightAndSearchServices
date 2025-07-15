@@ -23,7 +23,7 @@ const create = async(req, res) => {
         }
 }
 
-
+ 
 // DELTE -> /city/:id
 
 const destory = async(req, res) => {
