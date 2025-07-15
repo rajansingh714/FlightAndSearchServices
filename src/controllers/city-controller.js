@@ -39,7 +39,7 @@ const destory = async(req, res) => {
             console.log(error);
             return res.status(500).json({
                 data: {},
-                message: "Not able to delte a City",
+                message: "Not able to delete a City",
                 success: false,
                 err: error
             });
