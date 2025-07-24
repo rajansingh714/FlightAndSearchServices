@@ -45,7 +45,6 @@ from your terminal and execute `npx sequuelize db:create` and then execute
 #### City -> id, name, created_at, updated_at
 
 #### Airport -> id, name, address, city_id, created_at, updated_at
-
     RealtionShip -> city had many airports and Airports belongs to a city (One to many)
 
 

@@ -1,5 +1,7 @@
-"use strict";
-const { Model } = require("sequelize");
+'use strict';
+const {
+  Model
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Airport extends Model {
     /**
@@ -10,32 +12,28 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       this.belongsTo(models.City, {
-        foreignKey: "cityId",
-        onDelete: "CASCADE",
-      });
+        foreignKey: 'cityId',
+        onDelete: 'CASCADE'
+      }); 
     }
   }
-  Airport.init(
-    {
-      name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-      },
-      address: {
-        type: DataTypes.STRING,
-      },
-      cityId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
+  Airport.init({
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
-    {
-      sequelize,
-      modelName: "Airport",
+    address: {
+      type: DataTypes.STRING,
+    },
+    cityId: {
+      type: DataTypes.INTEGER,
     }
-  );
+  }, {
+    sequelize,
+    modelName: 'Airport',
+  });
   return Airport;
 };
+
 
 
