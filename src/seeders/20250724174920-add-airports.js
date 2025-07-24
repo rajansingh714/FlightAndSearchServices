@@ -15,40 +15,35 @@ module.exports = {
 
     await queryInterface.bulkInsert('Airports', [
       {
-          name: 'Kempegowda International Airport',
-          cityId: 9,
+          name: 'Chhatrapati Shivaji Maharaj International Airport',
+          cityId: 5,
           createdAt: new Date(),
-          updatedAt: new Date()
+          updatedAt: new Date() 
       },
+
       {
-          name: 'Mysoure Airport',
-          cityId: 9,
-          createdAt: new Date(),
-          updatedAt: new Date()
+        name: 'Juhu Airport',
+        cityId: 5,
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
+
       {
-          name: 'Darbhanga Airport',
-          cityId: 9,
-          createdAt: new Date(),
-          updatedAt: new Date()
+        name: 'Jalgaon Airport',
+        cityId: 5,
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
+
       {
-          name: 'Mengaluru Airport',
-          cityId: 9,
-          createdAt: new Date(),
-          updatedAt: new Date()
-      },
-      {
-          name: 'Indra Gandhi InterNational Airport',
-          cityId: 6,
-          createdAt: new Date(),
-          updatedAt: new Date()
+        name: 'Shirdi International Airport',
+        cityId: 5,
+        createdAt: new Date(),
+        updatedAt: new Date()
       }
 
     ], {})
   },
-
-   
 
   async down (queryInterface, Sequelize) {
     /**
