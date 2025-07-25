@@ -3,9 +3,8 @@ const bodyParser = require('body-parser');
 
 
 const db = require('./models/index');
-const  { City, Airport }  = require('./models/index')
 
-
+const { Airplane } = require('./models/index');
 const { PORT } = require('./config/serverConfig');
 const ApiRoutes = require("./routes/index");
 
@@ -22,17 +21,14 @@ const setupAndStartService = async() => {
     app.use('/api', ApiRoutes);
 
     app.listen(PORT, async() => {
-        // if(process.env.DB_SYNC) {
-        //     //  db.sequelize.sync({alter: true});
-        //  }
+        if(process.env.DB_SYNC) {
+            //  db.sequelize.sync({alter: true});
+         }
         console.log(`Server Started at ${PORT}`);
 
-        const response = await Airport.findAll({
-            where: {
-                cityId: 9
-            }
+        await Airplane.create({
+           modelNumber: 'Boeing 850' 
         });
-        // console.log(response);
 
     });
 }
