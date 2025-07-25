@@ -1,26 +1,32 @@
-const { FlightRepository } = require('../repository/index');
+const { FlightRepository, AirplaneRepository } = require('../repository/index');
+
 
 class FlightService {
-    constructor() {
-        this.flightRepository = new FlightRepository();
-    }
 
-    async createFlight(data) {
-        try {
-            const airplane = await this.airplaneRepository.getAirPlane(data.id);
-            const flight = await this.flightRepository.createFlight({
-                ...data, totalSeats:airplane.capacity
-            });
-            return flight;
-        } catch (error) {
-            console.log("something went wrong in service layer",error);
-            throw(error);
+        constructor() {
+            this.flighRepository = new FlightRepository;
+            this.ariplaneRepository = new AirplaneRepository;
         }
-    }
 
-    async getFlightData() {
-        
-    }
+        async createFlight(data) {
+            try {
+                const airplane = await this.ariplaneRepository.getAirplane(data.airplaneId);
+
+                const flight = await this.flighRepository.createFlight({
+                    ...data, totalSeats: airplane.capacity
+                });
+                return flight;
+
+            } catch (error) {
+                console.log('something went wrong in service layer');
+                throw(error);
+            }
+        }
+
+        async getFlightData() {
+            
+        }
+
 }
 
 
@@ -35,7 +41,7 @@ module.exports = FlightService;
  * departureTime,
  * price,
  * boardingGate,
- * totalSeats
+ * totalSeats --> airplane from Table
  */
 
 

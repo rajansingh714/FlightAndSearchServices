@@ -1,14 +1,13 @@
 const { Airplane } = require('../models/index');
 
-
-
 class AirplaneRepository {
-    async getAirPlane(id) {
+
+    async getAirplane(id) {
         try {
-            const result = await Airplane.findByPk(id);
-            return result;
+            const response = await Airplane.findByPk(id);
+            return response;
         } catch (error) {
-            console.log("something went wrong in Repository layer", error);
+            console.log('something went wrong in repository layer');
             throw(error);
         }
     }
