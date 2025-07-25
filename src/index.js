@@ -26,9 +26,9 @@ const setupAndStartService = async() => {
          }
         console.log(`Server Started at ${PORT}`);
 
-        await Airplane.create({
-           modelNumber: 'Boeing 850' 
-        });
+        // await Airplane.create({
+        //    modelNumber: 'Boeing 850' 
+        // });
 
     });
 }
