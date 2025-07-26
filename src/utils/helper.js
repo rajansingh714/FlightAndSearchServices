@@ -7,5 +7,6 @@ function CompareTime(timeString1, timeString2) {
 
 module.exports = {
     CompareTime
-
 };
+
+
