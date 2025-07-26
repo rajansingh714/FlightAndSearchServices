@@ -1,12 +1,24 @@
 const { FlightService } = require('../services/index');
+const { SuccessCodes } = require('../utils/error-code');
+
+
 
 const flightService = new FlightService();
 
 
 const create = async (req, res) => {
     try {
-        const response = await flightService.createFlight(req.body);
-        return res.status(200).json({
+         let flightRequrestDate = {
+            flightNumber: req.body.flightNumber,
+            airplaneId: req.body.airplaneId,
+            departureAirportId: req.body.departureAirportId,
+            arrivalAirportId: req.body.arrivalAirportId,
+            arrivalTime: req.body.arrivalTime,
+            departureTime: req.body.departureTime,
+            price: req.body.price
+        }
+        const response = await flightService.createFlight(flightRequrestDate);
+        return res.status(SuccessCodes.CREATED).json({
             data: response,
             message: 'successFully created a flight',
             success: true,
@@ -26,17 +38,9 @@ const create = async (req, res) => {
 
 const getAll = async (req, res) => {
     try {
-        let flightRequrestDate = {
-            flightNumber: req.body.flightNumber,
-            airplaneId: req.body.airplaneId,
-            departureAirportId: req.body.departureAirportId,
-            arrivalAirportId: req.body.arrivalAirportId,
-            arrivalTime: req.body.arrivalTime,
-            departureTime: req.body.departureTime,
-            price: req.body.price
-        }
-        const response = await flightService.getAllFlightData(flightRequrestDate);
-        return res.status(200).json({
+       
+        const response = await flightService.getAllFlightData(req.query);
+        return res.status(SuccessCodes.OK).json({
             success: true,
             data: response,
             message: 'successFully fecth the flights',
